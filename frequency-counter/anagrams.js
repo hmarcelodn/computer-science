@@ -1,10 +1,9 @@
-// O(N+M)
 function validAnagram(word1, word2){
-    // add whatever parameters you deem necessary - good luck!
+    // Two hash tables
     var dict1 = {};
     var dict2 = {};
 
-    // Chars in Word1
+    // Chars from first word
     for(var char of word1){
         if(!dict1[char]){
             dict1[char] = 1;
@@ -14,7 +13,7 @@ function validAnagram(word1, word2){
         }
     }
     
-    // Chars in Word2
+    // Chars from second word
     for(var char of word2){
         if(!dict2[char]){
             dict2[char] = 1;
@@ -24,14 +23,14 @@ function validAnagram(word1, word2){
         }
     }
     
-    // Valid Anagram First Comparison
+    // Check if all chars are included in second word
     for(var k in dict1){
         if(!dict2[k] || dict1[k] !== dict2[k]){
             return false;
         }
     }
 
-    // Valid Anagram Second Comparison
+    // Check if all chars are included in first world
     for(var k in dict2){
         if(!dict1[k] || dict1[k] !== dict2[k]){
             return false;
@@ -41,6 +40,7 @@ function validAnagram(word1, word2){
     return true;    
 }
 
+// Test cases
 console.log(validAnagram('', ''));
 console.log(validAnagram('abc', 'cba'));
 console.log(validAnagram('abc', 'abcd'));

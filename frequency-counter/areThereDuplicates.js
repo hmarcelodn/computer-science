@@ -1,6 +1,8 @@
 function areThereDuplicates() {
+    // Hash table
     var dic = {}; 
 
+    // Check duplicated values
     for(var i = 0; i <= arguments.length; i++){
         if( !dic[arguments[i]] ){
             dic[arguments[i]] = 1;
